@@ -1,28 +1,51 @@
-html, body {
-  font-family: 'Roboto', sans-serif;
-  padding: 0;
-  margin: 0;
+@font-face {
+  src: url(../../fonts/HiBlack-n3a1.otf);
+  font-family: hi;
 }
 
-#root {
-  height: 100vh;
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+  margin: 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
 .joinOuterContainer {
+  background-image: url("../../images/nightclub.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.712);
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   text-align: center;
-  height: 100vh;
-  align-items: center;
-  background-color: #1A1A1D;
+  height: 100%;
+  align-items: flex-start;
 }
 
 .joinInnerContainer {
-  width: 20%;
+  margin-top: 100px;
+  width: 50%;
 }
 
 .joinInput {
@@ -33,29 +56,90 @@ html, body {
 
 .heading {
   color: white;
-  font-size: 2.5em;
   padding-bottom: 10px;
-  border-bottom: 2px solid white;
+  font-size: 45px;
+  margin-bottom: 0px;
+  font-family: hi;
+}
+
+.tagline-container {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.NO-taglines {
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.NO-taglines h2 {
+  font-size: 30px;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0px 2px #000000da;
+}
+
+.NO-taglines h2::before {
+  content: "";
+  width: 100%;
+  border-bottom: solid 13px #a9fc86;
+  display: block;
+  position: absolute;
+  top: 58%;
+  z-index: -1;
+}
+
+.tagline {
+  margin-top: 0;
+  margin-bottom: 40px;
+  font-weight: 200;
+  font-size: 20px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.joinInput {
+  margin: 0 10px;
+  background: none;
+  border: 2px solid #ffffff86;
+  border-radius: 7px;
+  width: 200px;
+  color: white;
+  font-size: 17px;
+  padding: 10px 15px;
 }
 
 .button {
-    color: #fff !important;
-    text-transform: uppercase;
-    text-decoration: none;
-    background: #2979FF;
-    padding: 20px;
-    border-radius: 5px;
-    display: inline-block;
-    border: none;
-    width: 100%;
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #a9fc86;
+  padding: 17px;
+  border-radius: 26px;
+  display: inline-block;
+  border: none;
+  font-weight: bold;
+  width: 150px;
 }
-
-.mt-20 {
-  margin-top: 20px;
+.create-club {
+  color: #a9fc86;
+  font-size: 20px;
+  background: none;
+  border: none;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .joinOuterContainer {
+  .overlay {
     height: 100%;
   }
 
@@ -63,7 +147,21 @@ html, body {
     width: 90%;
   }
 
+  .heading {
+    font-size: 30px;
+  }
 
+  .input-container {
+    flex-direction: column;
+  }
+
+  .joinInput {
+    margin: 15px 0;
+  }
+
+  .joinOuterContainer {
+    height: 100%;
+  }
 }
 
 button:focus {

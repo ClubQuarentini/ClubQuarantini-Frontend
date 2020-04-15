@@ -26,13 +26,13 @@ const Join = () => {
             <input
               className="joinInput"
               type="text"
-              placeholder="Name"
+              placeholder="create username"
               onChange={(e) => setName(e.target.value)}
             />
             <input
               className="joinInput"
               type="text"
-              placeholder="Room"
+              placeholder="enter group code"
               onChange={(e) => setRoom(e.target.value)}
             />
             <Link

@@ -61,12 +61,14 @@ const Join = () => {
                   type="text"
                   placeholder="Create username"
                   onChange={(e) => setUsername(e.target.value)}
+                  required
                 />
                 <input
                   className="joinInput"
                   type="text"
                   placeholder="Enter group code"
                   onChange={(e) => setRoomName(e.target.value)}
+                  required
                 />
                 <button type="submit" className="button">
                   HIT THE CLUB

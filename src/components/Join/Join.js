@@ -24,8 +24,6 @@ const Join = () => {
       }).then((res) => res.json());
 
       setToken(data.token);
-
-      setToken("12345");
     },
     [username, roomName]
   );
@@ -35,6 +33,7 @@ const Join = () => {
   }, []);
 
   if (token) {
+    console.log("this is the token", token);
     return (
       <Room roomName={roomName} token={token} handleLogout={handleLogout} />
     );

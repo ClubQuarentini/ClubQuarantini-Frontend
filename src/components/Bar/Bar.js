@@ -9,6 +9,14 @@ const Bar = () => {
     setBarTendeScene(BartenderStill);
   }, []);
 
+  const changeBarScene = () => {
+    if (bartenderScene === BartenderStill) {
+      setBarTendeScene(BartenderShake);
+    } else {
+      setBarTendeScene(BartenderStill);
+    }
+  };
+
   return (
     <div className="bar">
       <div className="bar-imgs-container">
@@ -16,7 +24,9 @@ const Bar = () => {
         <img className="bartender" src={bartenderScene} />
         <img className="bar-counter" src="../../../Bar.png" />
       </div>
-      <button className="order-btn">Order a Drink</button>
+      <button onclick={changeBarScene} className="order-btn">
+        Order a Drink
+      </button>
     </div>
   );
 };

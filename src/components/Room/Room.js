@@ -56,7 +56,7 @@ const Room = ({ roomName, token, handleLogout }) => {
         <img src="../../../logo.png" />
         <div className="room-info">
           <h2>Club ID: {roomName}</h2>
-          <h2>Occupancy: {participants.length}</h2>
+          <h2>Occupancy: {participants.length + 1}</h2>
         </div>
       </div>
       <div className="bar-container">

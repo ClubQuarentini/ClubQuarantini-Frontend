@@ -21,7 +21,7 @@ body {
 }
 
 .joinOuterContainer {
-  background-image: url("../../images/nightclub.jpg");
+  background-image: url("../../images/confet.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@ body {
 }
 
 .overlay {
-  background-color: rgba(0, 0, 0, 0.712);
+  background-color: rgba(0, 0, 0, 0.808);
   /* position: absolute; */
   top: 0;
   left: 0;
@@ -120,6 +120,7 @@ body {
   color: white;
   font-size: 17px;
   padding: 10px 15px;
+  outline: none;
 }
 
 .button {
@@ -135,6 +136,7 @@ body {
   /* font-weight: bold; */
   transition: all 0.2s ease-in-out;
   width: 150px;
+  outline: none;
 }
 
 .button:hover {
@@ -181,8 +183,4 @@ body {
   .logo {
     width: 37%;
   }
-}
-
-button:focus {
-  outline: 0;
 }

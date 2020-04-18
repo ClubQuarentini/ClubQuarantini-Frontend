@@ -33,7 +33,6 @@ const Join = () => {
   }, []);
 
   if (token) {
-    console.log("this is the token", token);
     return (
       <Room roomName={roomName} token={token} handleLogout={handleLogout} />
     );

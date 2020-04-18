@@ -44,7 +44,7 @@ const Join = () => {
           <div className="joinInnerContainer">
             <div className="tagline-container">
               <div className="NO-taglines">
-                <h2>No COVER</h2>
+                <h2>NO COVER</h2>
                 <h2>NO BOUNCERS</h2>
                 <h2>NO PROBLEMS</h2>
               </div>
@@ -68,7 +68,7 @@ const Join = () => {
                   type="text"
                   placeholder="Enter group code"
                   onChange={(e) => setRoomName(e.target.value)}
-                  required
+                  req
                 />
                 <button type="submit" className="button">
                   HIT THE CLUB

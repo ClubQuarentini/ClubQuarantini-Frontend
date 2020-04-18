@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./bar.css";
-
+import BartenderShake from "../../images/BartenderScene2.gif";
+import BartenderStill from "../../images/bartenderstill.png";
 const Bar = () => {
+  const [bartenderScene, setBarTendeScene] = useState("");
+
+  useEffect(() => {
+    setBarTendeScene(BartenderStill);
+  }, []);
+
   return (
     <div className="bar">
-      <h1>test </h1>
+      <div className="bar-imgs-container">
+        <img className="bar-top" src="../../../BarBottles.png" />
+        <img className="bartender" src={bartenderScene} />
+        <img className="bar-counter" src="../../../Bar.png" />
+      </div>
+      <button className="order-btn">Order a Drink</button>
     </div>
   );
 };

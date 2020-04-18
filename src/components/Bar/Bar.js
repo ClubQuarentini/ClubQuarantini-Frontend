@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./bar.css";
-import BartenderShake from "../../images/BartenderScene2.gif";
+// import BartenderShake from "../../images/BartenderScene2.gif";
 import BartenderStill from "../../images/bartenderstill.png";
 const Bar = () => {
   const [bartenderScene, setBarTendeScene] = useState("");
@@ -9,13 +9,13 @@ const Bar = () => {
     setBarTendeScene(BartenderStill);
   }, []);
 
-  const changeBarScene = () => {
-    if (bartenderScene === BartenderStill) {
-      setBarTendeScene(BartenderShake);
-    } else {
-      setBarTendeScene(BartenderStill);
-    }
-  };
+  // const changeBarScene = () => {
+  //   if (bartenderScene === BartenderStill) {
+  //     setBarTendeScene(BartenderShake);
+  //   } else {
+  //     setBarTendeScene(BartenderStill);
+  //   }
+  // };
 
   return (
     <div className="bar">
@@ -24,9 +24,7 @@ const Bar = () => {
         <img className="bartender" src={bartenderScene} />
         <img className="bar-counter" src="../../../Bar.png" />
       </div>
-      <button onclick={changeBarScene} className="order-btn">
-        Order a Drink
-      </button>
+      <button className="order-btn">Order a Drink</button>
     </div>
   );
 };

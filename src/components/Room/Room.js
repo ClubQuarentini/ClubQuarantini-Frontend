@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react";
 import Video from "twilio-video";
 import Participant from "../Participant/Participant";
 import Bar from "../Bar/Bar";
+import io from "socket.io-client";
 import "./room.css";
 
-const Room = ({ roomName, token, handleLogout }) => {
+const Room = ({ userName, roomName, token, handleLogout }) => {
   const [room, setRoom] = useState(null);
   const [participants, setParticipants] = useState([]);
 

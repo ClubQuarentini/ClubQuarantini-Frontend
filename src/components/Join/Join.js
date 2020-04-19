@@ -34,7 +34,12 @@ const Join = () => {
 
   if (token) {
     return (
-      <Room roomName={roomName} token={token} handleLogout={handleLogout} />
+      <Room
+        userName={username}
+        roomName={roomName}
+        token={token}
+        handleLogout={handleLogout}
+      />
     );
   } else {
     return (

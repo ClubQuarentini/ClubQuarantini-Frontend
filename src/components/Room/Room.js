@@ -94,6 +94,10 @@ const Room = ({ userName, roomName, token, setToken }) => {
     socket.emit("drinkOrder", { userName, roomName, drinkID });
   };
 
+  const sendBartenderMakingDrink = ({ userName, roomName, drinkID }) => {
+    socket.emit("makingDrink", { userName, roomName, drinkID });
+  };
+
   const handleLogout = useCallback((event) => {
     setToken(null);
   }, []);
@@ -111,6 +115,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
           userName={userName}
           roomName={roomName}
           sendDrinkOrderToServer={sendDrinkOrderToServer}
+          sendBartenderMakingDrink={sendBartenderMakingDrink}
           drinkOrders={drinkOrders}
         />
         <div className="local-participant">

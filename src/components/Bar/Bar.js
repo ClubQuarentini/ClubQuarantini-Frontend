@@ -69,23 +69,28 @@ const DropDown = (props) => {
 };
 
 const Bar = (props) => {
-  const [bartenderScene, setBarTendeScene] = useState("");
+  const [bartenderScene, setBarTenderScene] = useState("");
   const [drinkOrders, setDrinkOrders] = useState([]);
 
   useEffect(() => {
     console.log("hey i am getting drink orders");
-    setBarTendeScene(BartenderStill);
+    setBarTenderScene(BartenderStill);
     setDrinkOrders(props.drinkOrders);
-  }, [props.drinkOrders]);
-
-  const changeBarScene = () => {
-    console.log("hello");
-    if (bartenderScene === BartenderStill) {
-      setBarTendeScene(BartenderScene2);
-    } else {
-      setBarTendeScene(BartenderStill);
+    if (
+      props.drinkOrders.length > 0 &&
+      props.drinkOrders[0].name === props.userName
+    ) {
+      setBarTenderScene(BartenderScene2);
+      setTimeout(() => {
+        props.sendBartenderMakingDrink({
+          userName: props.userName,
+          roomName: props.roomName,
+          drinkID: props.drinkID,
+        });
+        setBarTenderScene(BartenderStill);
+      }, 10000);
     }
-  };
+  }, [props.drinkOrders]);
 
   console.log("drink orders", drinkOrders);
   return (

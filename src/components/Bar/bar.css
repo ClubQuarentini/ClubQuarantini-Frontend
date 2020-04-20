@@ -15,6 +15,10 @@
   margin-bottom: 40px;
 }
 
+.bartender-img-container {
+  position: relative;
+}
+
 .bartender {
   position: relative;
   width: 100%;
@@ -47,7 +51,6 @@
   transition: all 0.2s ease-in-out;
   width: 180px;
   outline: none;
-  margin-top: 20px;
   position: relative;
   z-index: 2;
 }
@@ -92,4 +95,34 @@
 .icon-button {
   width: 8%;
   margin-right: 8px;
+}
+
+/* order info */
+.order-info {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 80%;
+}
+
+.que {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
+  min-width: 190px;
+}
+
+.que-info {
+  height: 40px;
+  overflow: scroll;
+}
+.que h5 {
+  margin: 0;
+  border-bottom: 1px solid #d8d8d8;
+}
+
+.que p {
+  margin: 5px;
 }

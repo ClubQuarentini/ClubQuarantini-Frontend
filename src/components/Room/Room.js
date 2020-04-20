@@ -100,15 +100,11 @@ const Room = ({ userName, roomName, token, setToken }) => {
 
   return (
     <div className="room">
-      <button className="logout" onClick={handleLogout}>
-        Log out
-      </button>
-      <div className="room-header">
-        <img src="../../../logo.png" />
-        <div className="room-info">
-          <h2>Club ID: {roomName}</h2>
-          <h2>Occupancy: {participants.length + 1}</h2>
-        </div>
+      <div className="club-info">
+        <button className="logout" onClick={handleLogout}>
+          Log out
+        </button>
+        <h2>Club ID: {roomName}</h2>
       </div>
       <div className="bar-container">
         <Bar

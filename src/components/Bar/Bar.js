@@ -8,6 +8,14 @@ import BartenderScene5 from "../../images/bartendergifs/Bartender5.gif";
 import BartenderScene6 from "../../images/bartendergifs/Bartender6.gif";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
 
+const DrinkQue = ({ drink }) => {
+  return (
+    <p>
+      {drink.name} ordered {drink.drinkID}
+    </p>
+  );
+};
+
 const Button = (props) => {
   const [open, setOpen] = useState(false);
 
@@ -82,25 +90,25 @@ const Bar = (props) => {
   console.log("drink orders", drinkOrders);
   return (
     <div className="bar">
-      <div className="que">
-        <h5>Drink Orders:</h5>
-        {drinkOrders &&
-          drinkOrders.map((drink, i) => {
-            return (
-              <h1 key={i}>
-                {drink.name} ordered {drink.drinkID}
-              </h1>
-            );
-          })}
-      </div>
       <div className="bar-imgs-container">
         <img className="bar-top" src="../../../BarBottles.png" />
         <img className="bartender" src={bartenderScene} />
         <img className="bar-counter" src="../../../Bar.png" />
       </div>
-      <Button>
-        <DropDown {...props} />
-      </Button>
+      <div className="order-info">
+        <Button>
+          <DropDown {...props} />
+        </Button>
+        <div className="que">
+          <h5>Drink Orders:</h5>
+          <div className="que-info">
+            {drinkOrders &&
+              drinkOrders.map((drink, i) => {
+                return <DrinkQue key={i} drink={drink} />;
+              })}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

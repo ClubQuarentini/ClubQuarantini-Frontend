@@ -3,6 +3,7 @@ import "./participant.css";
 const Participant = ({ participant }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
+  const [drink, setDrink] = useState("");
 
   const videoRef = useRef();
   const audioRef = useRef();
@@ -64,8 +65,13 @@ const Participant = ({ participant }) => {
 
   return (
     <div className="participant">
-      <h3 className="name">{participant.identity}</h3>
-      <video ref={videoRef} autoPlay={true} />
+      <div className="user-video-container">
+        {drink && <img src={drink} alt="drink" />}
+        <div className="video-overlay">
+          <h3 className="name">{participant.identity}</h3>
+        </div>
+        <video className="user-video" ref={videoRef} autoPlay={true} />
+      </div>
       <audio ref={audioRef} autoPlay={true} />
     </div>
   );

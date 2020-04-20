@@ -96,7 +96,7 @@ const Bar = (props) => {
   return (
     <div className="bar">
       <div className="bar-imgs-container">
-        <img className="bar-top" src="../../../BarBottles.png" />
+        <img className="bar-top" src="../../../bar-drinks-top.png" />
         <img className="bartender" src={bartenderScene} />
         <img className="bar-counter" src="../../../Bar.png" />
       </div>

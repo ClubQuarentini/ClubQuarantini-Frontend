@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./participant.css";
-const Participant = ({ participant }) => {
+import Drinks from "../../Drinks";
+const Participant = ({ participant, drinkOrders, userName, drink }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
-  const [drink, setDrink] = useState("");
-
+  const [displayDrink, setDisplayDrink] = useState([]);
+  console.log("participantn", participant);
   const videoRef = useRef();
   const audioRef = useRef();
 
@@ -63,10 +64,22 @@ const Participant = ({ participant }) => {
     }
   }, [audioTracks]);
 
+  //TODO: every time a user places and order see if that username matches ur username and then display that filtered drink
+  useEffect(() => {
+    if (userName && userName == drink.name) {
+      let filtredDrink = Drinks.filter((drinkObj) => {
+        return drinkObj.name === drink.drinkID;
+      });
+      setDisplayDrink(filtredDrink);
+    }
+  }, [drink]);
+
   return (
     <div className="participant">
       <div className="user-video-container">
-        {drink && <img src={drink} alt="drink" />}
+        {displayDrink.length > 0 && (
+          <img src={displayDrink[0].img} alt="drink" />
+        )}
         <div className="video-overlay">
           <h3 className="name">{participant.identity}</h3>
         </div>

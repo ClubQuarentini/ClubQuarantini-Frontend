@@ -4,6 +4,7 @@ import Participant from "../Participant/Participant";
 import Bar from "../Bar/Bar";
 import config from "../../config";
 import io from "socket.io-client";
+import Drinks from "../../Drinks";
 import "./room.css";
 let socket;
 
@@ -13,7 +14,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [drinkOrders, setDrinkOrders] = useState([]);
-  const [drinkOrder, setDrinkOrder] = useState([]);
+  const [drinkOrder, setDrinkOrder] = useState({});
 
   const remoteParticipants = participants.map((participant) => (
     <Participant key={participant.sid} participant={participant} />
@@ -47,8 +48,10 @@ const Room = ({ userName, roomName, token, setToken }) => {
     });
 
     socket.on("newOrder", ({ newOrder }) => {
-      console.log("single order", newOrder);
-      setDrinkOrder(newOrder);
+      setTimeout(() => {
+        console.log("single order", newOrder);
+        setDrinkOrder(newOrder);
+      }, 10000);
     });
   }, [drinkOrder, drinkOrders]);
 
@@ -94,8 +97,8 @@ const Room = ({ userName, roomName, token, setToken }) => {
     socket.emit("drinkOrder", { userName, roomName, drinkID });
   };
 
-  const sendBartenderMakingDrink = ({ userName, roomName, drinkID }) => {
-    socket.emit("makingDrink", { userName, roomName, drinkID });
+  const sendBartenderMakingDrink = ({ userName, roomName }) => {
+    socket.emit("makingDrink", { userName, roomName });
   };
 
   const handleLogout = useCallback((event) => {
@@ -123,6 +126,9 @@ const Room = ({ userName, roomName, token, setToken }) => {
             <Participant
               key={room.localParticipant.sid}
               participant={room.localParticipant}
+              drinkOrders={drinkOrders}
+              userName={userName}
+              drink={drinkOrder}
             />
           ) : (
             ""

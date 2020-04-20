@@ -85,7 +85,6 @@ const Bar = (props) => {
         props.sendBartenderMakingDrink({
           userName: props.userName,
           roomName: props.roomName,
-          drinkID: props.drinkID,
         });
         setBarTenderScene(BartenderStill);
       }, 10000);

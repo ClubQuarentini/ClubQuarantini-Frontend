@@ -10,6 +10,7 @@ import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
 
 const Button = (props) => {
   const [open, setOpen] = useState(false);
+
   return (
     <button onClick={() => setOpen(!open)} className="order-btn">
       Order a Drink
@@ -19,12 +20,24 @@ const Button = (props) => {
 };
 
 const DropDown = (props) => {
-  const DropDownItem = (props) => {
+  const DropDownItem = ({
+    sendDrinkOrderToServer,
+    userName,
+    roomName,
+    drinkID,
+    drinkImg,
+    drinkName,
+  }) => {
     return (
-      <a href="#" className="menu-item">
-        <img className="icon-button" src={props.drinkImg} />
-        {props.name}
-      </a>
+      <div
+        onClick={(e) =>
+          sendDrinkOrderToServer(e, { userName, roomName, drinkID })
+        }
+        className="menu-item"
+      >
+        <img className="icon-button" src={drinkImg} />
+        {drinkName}
+      </div>
     );
   };
 
@@ -34,8 +47,12 @@ const DropDown = (props) => {
         return (
           <DropDownItem
             key={drink.name}
-            name={drink.name}
+            drinkName={drink.name}
             drinkImg={drink.img}
+            userName={props.userName}
+            roomName={props.roomName}
+            drinkID={drink.name}
+            sendDrinkOrderToServer={props.sendDrinkOrderToServer}
           />
         );
       })}
@@ -43,12 +60,15 @@ const DropDown = (props) => {
   );
 };
 
-const Bar = () => {
+const Bar = (props) => {
   const [bartenderScene, setBarTendeScene] = useState("");
+  const [drinkOrders, setDrinkOrders] = useState([]);
 
   useEffect(() => {
+    console.log("hey i am getting drink orders");
     setBarTendeScene(BartenderStill);
-  }, []);
+    setDrinkOrders(props.drinkOrders);
+  }, [props.drinkOrders]);
 
   const changeBarScene = () => {
     console.log("hello");
@@ -59,15 +79,27 @@ const Bar = () => {
     }
   };
 
+  console.log("drink orders", drinkOrders);
   return (
     <div className="bar">
+      <div className="que">
+        <h5>Drink Orders:</h5>
+        {drinkOrders &&
+          drinkOrders.map((drink, i) => {
+            return (
+              <h1 key={i}>
+                {drink.name} ordered {drink.drinkID}
+              </h1>
+            );
+          })}
+      </div>
       <div className="bar-imgs-container">
         <img className="bar-top" src="../../../BarBottles.png" />
         <img className="bartender" src={bartenderScene} />
         <img className="bar-counter" src="../../../Bar.png" />
       </div>
       <Button>
-        <DropDown />
+        <DropDown {...props} />
       </Button>
     </div>
   );

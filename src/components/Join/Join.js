@@ -28,17 +28,13 @@ const Join = () => {
     [username, roomName]
   );
 
-  const handleLogout = useCallback((event) => {
-    setToken(null);
-  }, []);
-
   if (token) {
     return (
       <Room
         userName={username}
         roomName={roomName}
         token={token}
-        handleLogout={handleLogout}
+        setToken={setToken}
       />
     );
   } else {

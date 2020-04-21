@@ -1,7 +1,7 @@
 const Drinks = [
   {
     name: "Beer",
-    img: "../../../drinks/Beer.png",
+    img: "../../../drinks/beer.png",
   },
   {
     name: "Bloody Mary",

@@ -14,10 +14,14 @@ const Room = ({ userName, roomName, token, setToken }) => {
   const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState([]);
   const [drinkOrders, setDrinkOrders] = useState([]);
-  const [drinkOrder, setDrinkOrder] = useState({});
+  const [drinkOrder, setDrinkOrder] = useState(null);
 
   const remoteParticipants = participants.map((participant) => (
-    <Participant key={participant.sid} participant={participant} />
+    <Participant
+      key={participant.sid}
+      drink={drinkOrder}
+      participant={participant}
+    />
   ));
 
   useEffect(() => {
@@ -35,21 +39,22 @@ const Room = ({ userName, roomName, token, setToken }) => {
       console.log("message", messages);
     });
     socket.on("roomData", ({ users }) => {
-      console.log("roomdata", users);
+      // console.log("roomdata", users);
       setUsers(users);
     });
   }, [messages]);
 
   useEffect(() => {
     socket.on("allDrinkOrders", ({ userOrders }) => {
-      console.log("orders", userOrders);
+      // console.log("orders", userOrders);
+
       setDrinkOrders(userOrders);
       // console.log("orders", drinkOrders);
     });
 
     socket.on("newOrder", ({ newOrder }) => {
       setTimeout(() => {
-        console.log("single order", newOrder);
+        // console.log("single order", newOrder);
         setDrinkOrder(newOrder);
       }, 10000);
     });
@@ -126,8 +131,6 @@ const Room = ({ userName, roomName, token, setToken }) => {
             <Participant
               key={room.localParticipant.sid}
               participant={room.localParticipant}
-              drinkOrders={drinkOrders}
-              userName={userName}
               drink={drinkOrder}
             />
           ) : (

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="643px" height="201px" viewBox="0 0 643 201" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>Bar</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="55.1291618%" y1="-30.9967981%" x2="55.1291618%" y2="140.205132%" id="linearGradient-1">
+            <stop stop-color="#8E9EAB" offset="0%"></stop>
+            <stop stop-color="#EEF2F3" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="637" height="22"></rect>
+        <filter x="-1.0%" y="-15.9%" width="102.0%" height="163.6%" filterUnits="objectBoundingBox" id="filter-3">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.28564117   0 0 0 0 0.591068616   0 0 0 0 0.80004529  0 0 0 1 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" transform="translate(-3331.000000, -1444.000000)">
+            <g id="Bar" transform="translate(3334.000000, 1444.000000)">
+                <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="18" width="637" height="183"></rect>
+                <g id="Group-17" transform="translate(16.000000, 34.000000)">
+                    <g id="Group-16">
+                        <rect id="Rectangle" stroke="#21211F" stroke-width="6" opacity="0.300000012" x="3" y="3" width="96" height="145"></rect>
+                        <rect id="Rectangle" stroke="#DDDDDD" stroke-width="2" x="8" y="8" width="86" height="135"></rect>
+                        <polygon id="Triangle" fill="#8E9EAB" opacity="0.2" points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                        <polygon id="Triangle" fill="#EEF2F3" opacity="0.2" transform="translate(51.002700, 75.542247) scale(-1, -1) translate(-51.002700, -75.542247) " points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                    </g>
+                    <g id="Group-16" transform="translate(126.000000, 0.000000)">
+                        <rect id="Rectangle" stroke="#21211F" stroke-width="6" opacity="0.300000012" x="3" y="3" width="96" height="145"></rect>
+                        <rect id="Rectangle" stroke="#DDDDDD" stroke-width="2" x="8" y="8" width="86" height="135"></rect>
+                        <polygon id="Triangle" fill="#8E9EAB" opacity="0.2" points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                        <polygon id="Triangle" fill="#EEF2F3" opacity="0.2" transform="translate(51.002700, 75.542247) scale(-1, -1) translate(-51.002700, -75.542247) " points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                    </g>
+                    <g id="Group-16" transform="translate(252.000000, 0.000000)">
+                        <rect id="Rectangle" stroke="#21211F" stroke-width="6" opacity="0.300000012" x="3" y="3" width="96" height="145"></rect>
+                        <rect id="Rectangle" stroke="#DDDDDD" stroke-width="2" x="8" y="8" width="86" height="135"></rect>
+                        <polygon id="Triangle" fill="#8E9EAB" opacity="0.200000003" points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                        <polygon id="Triangle" fill="#EEF2F3" opacity="0.200000003" transform="translate(51.002700, 75.542247) scale(-1, -1) translate(-51.002700, -75.542247) " points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                    </g>
+                    <g id="Group-16" transform="translate(378.000000, 0.000000)">
+                        <rect id="Rectangle" stroke="#21211F" stroke-width="6" opacity="0.300000012" x="3" y="3" width="96" height="145"></rect>
+                        <rect id="Rectangle" stroke="#DDDDDD" stroke-width="2" x="8" y="8" width="86" height="135"></rect>
+                        <polygon id="Triangle" fill="#8E9EAB" opacity="0.200000003" points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                        <polygon id="Triangle" fill="#EEF2F3" opacity="0.200000003" transform="translate(51.002700, 75.542247) scale(-1, -1) translate(-51.002700, -75.542247) " points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                    </g>
+                    <g id="Group-16" transform="translate(504.000000, 0.000000)">
+                        <rect id="Rectangle" stroke="#21211F" stroke-width="6" opacity="0.300000012" x="3" y="3" width="96" height="145"></rect>
+                        <rect id="Rectangle" stroke="#DDDDDD" stroke-width="2" x="8" y="8" width="86" height="135"></rect>
+                        <polygon id="Triangle" fill="#8E9EAB" opacity="0.2" points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                        <polygon id="Triangle" fill="#EEF2F3" opacity="0.2" transform="translate(51.002700, 75.542247) scale(-1, -1) translate(-51.002700, -75.542247) " points="92.9901092 9.06225128 92.9901092 142.022243 9.01529103 142.022243"></polygon>
+                    </g>
+                </g>
+                <g id="Group-22" transform="translate(51.000000, 22.000000)" fill="#FFFFFF" opacity="0.199097844">
+                    <polygon id="Rectangle" points="194.868421 0 213.684211 0 260 179 150 179"></polygon>
+                    <polygon id="Rectangle" points="344.868421 0 363.684211 0 410 179 300 179"></polygon>
+                    <polygon id="Rectangle" points="494.868421 0 513.684211 0 560 179 450 179"></polygon>
+                    <polygon id="Rectangle" points="44.8684211 0 63.6842105 0 110 179 -6.25277607e-12 179"></polygon>
+                </g>
+                <g id="Group-18">
+                    <g id="Rectangle">
+                        <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        <use fill="#465C6B" fill-rule="evenodd" xlink:href="#path-2"></use>
+                    </g>
+                    <rect id="Rectangle" stroke="#091117" stroke-width="2" fill="#696969" x="1" y="20" width="635" height="1"></rect>
+                    <rect id="Rectangle" stroke="#203340" stroke-width="2" x="1" y="1" width="635" height="1"></rect>
+                </g>
+                <g id="Group-23" transform="translate(32.000000, 100.000000)">
+                    <rect id="Rectangle" fill="#161515" x="40" y="17" width="12" height="84"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.0525948661" x="46" y="17" width="6" height="84"></rect>
+                    <rect id="Rectangle" fill="#297286" x="0" y="0" width="92" height="21"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.197777158" x="46" y="0" width="46" height="21"></rect>
+                </g>
+                <g id="Group-23" transform="translate(188.000000, 100.000000)">
+                    <rect id="Rectangle" fill="#161515" x="40" y="17" width="12" height="84"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.0525948661" x="46" y="17" width="6" height="84"></rect>
+                    <rect id="Rectangle" fill="#297286" x="0" y="0" width="92" height="21"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.197777158" x="46" y="0" width="46" height="21"></rect>
+                </g>
+                <g id="Group-23" transform="translate(344.000000, 100.000000)">
+                    <rect id="Rectangle" fill="#161515" x="40" y="17" width="12" height="84"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.0525948661" x="46" y="17" width="6" height="84"></rect>
+                    <rect id="Rectangle" fill="#297286" x="0" y="0" width="92" height="21"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.197777158" x="46" y="0" width="46" height="21"></rect>
+                </g>
+                <g id="Group-23" transform="translate(500.000000, 100.000000)">
+                    <rect id="Rectangle" fill="#161515" x="40" y="17" width="12" height="84"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.0525948661" x="46" y="17" width="6" height="84"></rect>
+                    <rect id="Rectangle" fill="#297286" x="0" y="0" width="92" height="21"></rect>
+                    <rect id="Rectangle" fill="#FFFFFF" opacity="0.197777158" x="46" y="0" width="46" height="21"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

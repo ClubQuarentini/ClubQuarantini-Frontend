@@ -73,7 +73,7 @@ const Bar = (props) => {
   const [drinkOrders, setDrinkOrders] = useState([]);
 
   useEffect(() => {
-    console.log("hey i am getting drink orders");
+    // console.log("hey i am getting drink orders");
     setBarTenderScene(BartenderStill);
     setDrinkOrders(props.drinkOrders);
     if (
@@ -91,13 +91,13 @@ const Bar = (props) => {
     }
   }, [props.drinkOrders]);
 
-  console.log("drink orders", drinkOrders);
+  // console.log("drink orders", drinkOrders);
   return (
     <div className="bar">
       <div className="bar-imgs-container">
-        <img className="bar-top" src="../../../bar-drinks-top.png" />
+        <img className="bar-top" src="../../../bar-top.png" />
         <img className="bartender" src={bartenderScene} />
-        <img className="bar-counter" src="../../../Bar.png" />
+        <img className="bar-counter" src="../../../Bar.svg" />
       </div>
       <div className="order-info">
         <Button>

@@ -8,12 +8,27 @@ import BartenderScene5 from "../../images/bartendergifs/Bartender5.gif";
 import BartenderScene6 from "../../images/bartendergifs/Bartender6.gif";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
 
-const DrinkQue = ({ drink }) => {
-  return (
-    <p>
-      {drink.name} ordered {drink.drinkID}
-    </p>
-  );
+const createTheDrinkQue = (drinkOrders) => {
+  if (drinkOrders.length > 1) {
+    return (
+      <div className="drink-que">
+        <p className="serving">
+          Serving: {drinkOrders[0].name} ordered {drinkOrders[0].drinkID}
+        </p>
+        <p className="on-deck">
+          On Deck: {drinkOrders[1].name} ordered {drinkOrders[1].drinkID}
+        </p>
+      </div>
+    );
+  } else {
+    return (
+      <div className="drink-que">
+        <p className="serving">
+          Serving: {drinkOrders[0].name} ordered {drinkOrders[0].drinkID}
+        </p>
+      </div>
+    );
+  }
 };
 
 const Button = (props) => {
@@ -113,12 +128,7 @@ const Bar = (props) => {
         </Button>
         <div className="que">
           <h5>Drink Orders:</h5>
-          <div className="que-info">
-            {drinkOrders &&
-              drinkOrders.map((drink, i) => {
-                return <DrinkQue key={i} drink={drink} />;
-              })}
-          </div>
+          {drinkOrders.length > 0 && createTheDrinkQue(drinkOrders)}
         </div>
       </div>
     </div>

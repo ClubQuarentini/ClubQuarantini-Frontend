@@ -107,22 +107,30 @@
 }
 
 .que {
-  background-color: white;
+  /* background-color: white; */
   color: black;
   padding: 5px;
   border-radius: 5px;
   min-width: 190px;
 }
 
-.que-info {
-  height: 40px;
-  overflow: scroll;
-}
 .que h5 {
+  font-size: 15px;
+  color: white;
   margin: 0;
   border-bottom: 1px solid #d8d8d8;
 }
 
 .que p {
   margin: 5px;
+}
+
+.drink-que .serving {
+  font-size: 15px;
+  color: white;
+}
+
+.drink-que .on-deck {
+  font-size: 13px;
+  color: rgb(150, 150, 150);
 }

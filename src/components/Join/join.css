@@ -149,6 +149,15 @@ body {
   font-size: 20px;
   background: none;
   border: none;
+  outline: none;
+  transition: border 0.2s ease-in-out;
+  padding: 10px 15px;
+}
+
+.create-club:hover {
+  cursor: pointer;
+  border: 2px solid #6ab04c;
+  border-radius: 30px;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

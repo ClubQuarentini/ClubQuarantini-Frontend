@@ -80,7 +80,15 @@ const Bar = (props) => {
       props.drinkOrders.length > 0 &&
       props.drinkOrders[0].name === props.userName
     ) {
-      setBarTenderScene(BartenderScene2);
+      let barScenes = [
+        BartenderScene2,
+        BartenderScene3,
+        BartenderScene4,
+        BartenderScene5,
+        BartenderScene6,
+      ];
+      let randomNum = Math.floor(Math.random() * barScenes.length);
+      setBarTenderScene(barScenes[randomNum]);
       setTimeout(() => {
         props.sendBartenderMakingDrink({
           userName: props.userName,

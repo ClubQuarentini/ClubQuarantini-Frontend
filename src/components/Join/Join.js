@@ -2,16 +2,53 @@ import React, { useState, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Room from "../Room/Room";
 import config from "../../config";
+import SignupModal from "../SignupModal/SignupModal";
 import "./join.css";
+
+const generateRandomRoom = () => {
+  let randomArray = [];
+  let set1 = Math.floor(Math.random() * 100);
+  let set2 = Math.floor(Math.random() * 100);
+  let set3 = Math.floor(Math.random() * 100);
+  randomArray.push(set1, set2, set3);
+  return randomArray.join("").toString();
+};
 
 const Join = () => {
   const [username, setUsername] = useState("");
   const [roomName, setRoomName] = useState("");
   const [token, setToken] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleSubmit = useCallback(
+  const EnterClubRoom = useCallback(
     async (event) => {
       event.preventDefault();
+      setIsModalOpen(false);
+
+      //TODO: check if there is a user already with that room
+
+      const data = await fetch(`${config.API_URI}/video/token`, {
+        method: "POST",
+        body: JSON.stringify({
+          identity: username,
+          room: roomName,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((res) => res.json());
+
+      setToken(data.token);
+    },
+    [username, roomName]
+  );
+
+  const CreateClubRoom = useCallback(
+    async (event) => {
+      event.preventDefault();
+      setIsModalOpen(false);
+      let roomID = generateRandomRoom();
+      setRoomName(roomID);
       const data = await fetch(`${config.API_URI}/video/token`, {
         method: "POST",
         body: JSON.stringify({
@@ -55,7 +92,7 @@ const Join = () => {
                 drink.
               </p>
             </div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={EnterClubRoom}>
               <div className="input-container">
                 <input
                   className="joinInput"
@@ -76,7 +113,19 @@ const Join = () => {
                 </button>
               </div>
             </form>
-            <button className="create-club">Or start your own club</button>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="create-club"
+            >
+              Or start your own club
+            </button>
+            <SignupModal
+              isModalOpen={isModalOpen}
+              setIsModalOpen={setIsModalOpen}
+              handleSubmit={CreateClubRoom}
+              setUsername={setUsername}
+              setRoomName={setRoomName}
+            />
           </div>
         </div>
       </div>

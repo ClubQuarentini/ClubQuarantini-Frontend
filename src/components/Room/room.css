@@ -32,6 +32,7 @@
   font-size: 15px;
   border-radius: 5px;
   padding: 5px 10px;
+  outline: none;
 }
 
 /* .room-header {

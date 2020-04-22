@@ -16,8 +16,9 @@ const Room = ({ userName, roomName, token, setToken }) => {
   const [drinkOrders, setDrinkOrders] = useState([]);
   const [drinkOrder, setDrinkOrder] = useState(null);
 
-  const remoteParticipants = participants.map((participant) => (
+  const remoteParticipants = participants.map((participant, i) => (
     <Participant
+      className={i}
       key={participant.sid}
       drink={drinkOrder}
       participant={participant}
@@ -137,8 +138,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
             ""
           )}
         </div>
-
-        <div className="remote-participants">{remoteParticipants}</div>
+        {remoteParticipants}
       </div>
     </div>
   );

@@ -21,8 +21,8 @@ video {
 
 .user-video-container img {
   position: absolute;
-  top: 2px;
-  left: 2px;
+  top: 8px;
+  left: 8px;
   width: 10%;
 }
 .video-overlay {

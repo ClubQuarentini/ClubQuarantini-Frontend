@@ -24,7 +24,7 @@ const SignupModal = ({
             className="joinInput"
             type="text"
             placeholder="Create username"
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => setUsername(e.target.value.toLowerCase())}
             required
           />
           <button type="submit" className="button">

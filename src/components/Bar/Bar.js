@@ -23,7 +23,7 @@ const createTheDrinkQue = (drinkOrders) => {
   } else {
     return (
       <div className="drink-que">
-        <p className="serving">
+        <p>
           Serving: {drinkOrders[0].name} ordered {drinkOrders[0].drinkID}
         </p>
       </div>

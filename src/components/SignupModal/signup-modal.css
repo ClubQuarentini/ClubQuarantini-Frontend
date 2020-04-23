@@ -1,5 +1,5 @@
 .modal {
-  background: black;
+  background: rgba(0, 0, 0, 0.9);
   overflow: auto;
   webkitoverflowscrolling: touch;
   border-radius: 5px;
@@ -72,15 +72,18 @@ form {
 }
 
 .exit-btn {
-  border: none;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+  border: 2px solid black;
+  border-radius: 30px;
   color: white;
-  padding: 5px 10px;
+  padding: 5px 15px;
   font-size: 15px;
-  background-color: #6ab04c;
   outline: none;
   cursor: pointer;
+  background-color: black;
+  transition: all 0.2s ease-in-out;
+}
+
+.exit-btn:hover {
+  color: rgba(231, 76, 60, 1);
+  border: 2px solid rgba(231, 76, 60, 1);
 }

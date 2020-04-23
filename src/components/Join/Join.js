@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Room from "../Room/Room";
 import config from "../../config";
 import SignupModal from "../SignupModal/SignupModal";
+import { useSpring, animated } from "react-spring";
+
 import "./join.css";
 
 const generateRandomRoom = () => {
@@ -19,6 +21,12 @@ const Join = () => {
   const [roomName, setRoomName] = useState("");
   const [token, setToken] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const fade = useSpring({
+    config: { duration: 2000 },
+    from: { opacity: 0 },
+    delay: 1000,
+    opacity: 1,
+  });
 
   const EnterClubRoom = useCallback(
     async (event) => {
@@ -26,7 +34,6 @@ const Join = () => {
       setIsModalOpen(false);
 
       //TODO: check if there is a user already with that room
-
       const data = await fetch(`${config.API_URI}/video/token`, {
         method: "POST",
         body: JSON.stringify({
@@ -59,7 +66,7 @@ const Join = () => {
           "Content-Type": "application/json",
         },
       }).then((res) => res.json());
-
+      console.log("username", username);
       setToken(data.token);
     },
     [username, roomName]
@@ -79,7 +86,7 @@ const Join = () => {
       <div className="joinOuterContainer">
         <div className="overlay">
           <img className="logo" src="../../logo.png"></img>
-          <div className="joinInnerContainer">
+          <animated.div className="joinInnerContainer" style={fade}>
             <div className="tagline-container">
               <div className="NO-taglines">
                 <h2>NO COVER</h2>
@@ -88,8 +95,8 @@ const Join = () => {
               </div>
               <h1 className="heading">THEQUARANTINI.CLUB</h1>
               <p className="tagline">
-                Never been easier to connect with your friends over a quick
-                drink.
+                Never been easier to connect with your friends over a quick,
+                virtual drink.
               </p>
             </div>
             <form onSubmit={EnterClubRoom}>
@@ -98,14 +105,14 @@ const Join = () => {
                   className="joinInput"
                   type="text"
                   placeholder="Create username"
-                  onChange={(e) => setUsername(e.target.value)}
+                  onChange={(e) => setUsername(e.target.value.toLowerCase())}
                   required
                 />
                 <input
                   className="joinInput"
                   type="text"
                   placeholder="Enter group code"
-                  onChange={(e) => setRoomName(e.target.value)}
+                  onChange={(e) => setRoomName(e.target.value.toString())}
                   req
                 />
                 <button type="submit" className="button">
@@ -126,7 +133,7 @@ const Join = () => {
               setUsername={setUsername}
               setRoomName={setRoomName}
             />
-          </div>
+          </animated.div>
         </div>
       </div>
     );

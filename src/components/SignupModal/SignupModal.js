@@ -18,7 +18,8 @@ const SignupModal = ({
       isOpen={isModalOpen}
       onRequestClose={() => setIsModalOpen(false)}
     >
-      <form onSubmit={handleSubmit}>
+      <form className="modal-form" onSubmit={handleSubmit}>
+        <h3>Create a Username to Start Your Own Club</h3>
         <div className="modal-input-container">
           <input
             className="joinInput"
@@ -28,12 +29,12 @@ const SignupModal = ({
             required
           />
           <button type="submit" className="button">
-            HIT THE CLUB
+            CREATE CLUB
           </button>
         </div>
       </form>
       <button className="exit-btn" onClick={() => setIsModalOpen(false)}>
-        Exit
+        X
       </button>
     </Modal>
   );

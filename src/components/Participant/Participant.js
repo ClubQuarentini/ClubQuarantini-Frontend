@@ -1,10 +1,19 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./participant.css";
 import Drinks from "../../Drinks";
+import { useSpring, animated } from "react-spring";
+
 const Participant = ({ participant, drink }) => {
   const [videoTracks, setVideoTracks] = useState([]);
   const [audioTracks, setAudioTracks] = useState([]);
   const [displayDrink, setDisplayDrink] = useState([]);
+
+  //react-spring transitions
+  const fade = useSpring({
+    config: { duration: 200 },
+    from: { opacity: 0, transform: `translate3d(0,200%,0)` },
+    to: { opacity: 1, transform: `translate3d(0,0%,0)` },
+  });
 
   // console.log("participantn", participant);
   const videoRef = useRef();
@@ -82,7 +91,7 @@ const Participant = ({ participant, drink }) => {
   };
 
   return (
-    <div className="participant">
+    <animated.div style={fade} className="participant">
       <div className="user-video-container">
         {displayDrink.length > 0 && (
           <img src={displayDrink[0].img} alt="drink" />
@@ -93,7 +102,7 @@ const Participant = ({ participant, drink }) => {
         <video className="user-video" ref={videoRef} autoPlay={true} />
       </div>
       <audio ref={audioRef} autoPlay={true} />
-    </div>
+    </animated.div>
   );
 };
 

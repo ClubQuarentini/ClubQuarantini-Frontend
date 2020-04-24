@@ -6,7 +6,15 @@ import config from "../../config";
 import io from "socket.io-client";
 import Drinks from "../../Drinks";
 import "./room.css";
+
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../Checkout/Checkout";
+
 let socket;
+
+const promise = loadStripe("pk_test_1hoMMf50PMd3g4ZPW4xh1WmG00EYO0AhYn");
+
 
 const Room = ({ userName, roomName, token, setToken }) => {
   const [room, setRoom] = useState(null);
@@ -120,13 +128,16 @@ const Room = ({ userName, roomName, token, setToken }) => {
         <h2>Club ID: {roomName}</h2>
       </div>
       <div className="bar-container">
-        <Bar
-          userName={userName}
-          roomName={roomName}
-          sendDrinkOrderToServer={sendDrinkOrderToServer}
-          sendBartenderMakingDrink={sendBartenderMakingDrink}
-          drinkOrders={drinkOrders}
-        />
+        <Elements stripe={promise}>
+          <CheckoutForm />
+          <Bar
+            userName={userName}
+            roomName={roomName}
+            sendDrinkOrderToServer={sendDrinkOrderToServer}
+            sendBartenderMakingDrink={sendBartenderMakingDrink}
+            drinkOrders={drinkOrders}
+          />
+        </Elements>
         <div className="local-participant">
           {room ? (
             <Participant

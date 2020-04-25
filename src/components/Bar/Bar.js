@@ -7,6 +7,7 @@ import BartenderScene3 from "../../images/bartendergifs/bartender3.png";
 import BartenderScene4 from "../../images/bartendergifs/bartender4.png";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
 import { useSpring, animated } from "react-spring";
+import CheckoutForm from "../Checkout/Checkout";
 
 const createTheDrinkQue = (drinkOrders) => {
   if (drinkOrders.length > 1) {
@@ -34,7 +35,6 @@ const createTheDrinkQue = (drinkOrders) => {
 
 const Button = (props) => {
   const [open, setOpen] = useState(false);
-
   return (
     <button onClick={() => setOpen(!open)} className="order-btn">
       Order a Drink
@@ -150,9 +150,16 @@ const Bar = (props) => {
         <img className="bar-counter" src="../../../Bar.svg" />
       </animated.div>
       <div className="order-info">
+        <div id="bar-btns">
         <Button>
           <DropDown {...props} />
         </Button>
+        <button onClick={() => <CheckoutForm/>}
+              className="relief-btn"
+            >
+              Tip for Covid Relief
+        </button>
+        </div>
         <div className="que">
           <h5>Drink Orders</h5>
           {drinkOrders.length > 0 && createTheDrinkQue(drinkOrders)}

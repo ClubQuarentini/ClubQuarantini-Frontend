@@ -129,7 +129,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
       </div>
       <div className="bar-container">
         <Elements stripe={promise}>
-          <CheckoutForm />
+
           <Bar
             userName={userName}
             roomName={roomName}

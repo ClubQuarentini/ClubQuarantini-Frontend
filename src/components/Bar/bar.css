@@ -55,7 +55,23 @@
   display: inline-block;
   border: none;
   font-size: 15px;
-  /* font-weight: bold; */
+  transition: all 0.2s ease-in-out;
+  width: 180px;
+  outline: none;
+  position: relative;
+  z-index: 2;
+  margin-right: 24px;
+}
+
+.relief-btn {
+  color: #6ab04c !important;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 30px;
+  display: inline-block;
+  border: 2px solid #6ab04c;
+  background-color:black;
+  font-size: 15px;
   transition: all 0.2s ease-in-out;
   width: 180px;
   outline: none;

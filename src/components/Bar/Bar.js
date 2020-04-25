@@ -87,6 +87,7 @@ const DropDown = (props) => {
 const Bar = (props) => {
   const [bartenderScene, setBarTenderScene] = useState("");
   const [drinkOrders, setDrinkOrders] = useState([]);
+  const [isCheckoutFormOpen, setIsCheckoutFormOpen] = useState(false);
 
   //test
   //test
@@ -151,14 +152,16 @@ const Bar = (props) => {
       </animated.div>
       <div className="order-info">
         <div id="bar-btns">
-        <Button>
-          <DropDown {...props} />
-        </Button>
-        <button onClick={() => <CheckoutForm/>}
-              className="relief-btn"
-            >
-              Tip for Covid Relief
-        </button>
+          <Button>
+            <DropDown {...props} />
+          </Button>
+          <button
+            onClick={() => setIsCheckoutFormOpen(!isCheckoutFormOpen)}
+            className="relief-btn"
+          >
+            Tip for Covid Relief
+          </button>
+          {isCheckoutFormOpen && <CheckoutForm />}
         </div>
         <div className="que">
           <h5>Drink Orders</h5>

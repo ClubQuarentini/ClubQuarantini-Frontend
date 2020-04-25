@@ -64,10 +64,10 @@ const Join = () => {
                 setToken(tokenData.token);
               })
               .catch(() => {
-                setError("Same Username");
+                setError("That username is taken for this room");
               });
           } else {
-            setToken(tokenData.token);
+            setError("A room with that ID is not created yet");
           }
         });
     },
@@ -123,11 +123,7 @@ const Join = () => {
                 virtual drink.
               </p>
             </div>
-            {error && (
-              <p className="username-error">
-                That username is taken for this room
-              </p>
-            )}
+            {error && <p className="username-error">{error}</p>}
             <form onSubmit={EnterClubRoom}>
               <div className="input-container">
                 <input

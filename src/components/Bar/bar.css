@@ -79,6 +79,11 @@
   z-index: 2;
 }
 
+.relief-btn:hover {
+  background: #325324;
+  cursor: pointer;
+}
+
 .order-btn:hover {
   background: #325324;
   cursor: pointer;

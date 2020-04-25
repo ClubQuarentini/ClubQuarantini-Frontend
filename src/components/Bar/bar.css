@@ -12,7 +12,7 @@
 }
 
 .bar-imgs-container:hover {
-  box-shadow: 0px 29px 50px 10px rgba(114, 236, 14, 0.4);
+  box-shadow: 0 12px 31px 5px rgba(114, 236, 14, 0.25);
 }
 .bar-imgs-container {
   border-radius: 5px;

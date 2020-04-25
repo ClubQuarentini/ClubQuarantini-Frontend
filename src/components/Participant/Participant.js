@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./participant.css";
 import Drinks from "../../Drinks";
-import { useSpring, animated } from "react-spring";
+import { useSpring, animated, useTransition } from "react-spring";
 
 const Participant = ({ participant, drink }) => {
   const [videoTracks, setVideoTracks] = useState([]);
@@ -11,7 +11,7 @@ const Participant = ({ participant, drink }) => {
   //react-spring transitions
   const fade = useSpring({
     config: { duration: 200 },
-    from: { opacity: 0, transform: `translate3d(0,200%,0)` },
+    from: { opacity: 0, transform: `translate3d(0,100%,0)` },
     to: { opacity: 1, transform: `translate3d(0,0%,0)` },
   });
 

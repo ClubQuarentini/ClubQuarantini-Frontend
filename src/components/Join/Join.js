@@ -9,10 +9,10 @@ import "./join.css";
 
 const generateRandomRoom = () => {
   let randomArray = [];
-  let set1 = Math.floor(Math.random() * 100);
-  let set2 = Math.floor(Math.random() * 100);
-  let set3 = Math.floor(Math.random() * 100);
-  randomArray.push(set1, set2, set3);
+  while (randomArray.length != 6) {
+    let randomNum = Math.floor(Math.random() * 9);
+    randomArray.push(randomNum);
+  }
   return randomArray.join("").toString();
 };
 
@@ -34,7 +34,6 @@ const Join = () => {
       event.preventDefault();
       setIsModalOpen(false);
 
-      //TODO: check if there is a user already with that room
       const tokenData = await fetch(`${config.API_URI}/video/token`, {
         method: "POST",
         body: JSON.stringify({
@@ -45,6 +44,9 @@ const Join = () => {
           "Content-Type": "application/json",
         },
       }).then((res) => res.json());
+
+      //checking to see if there is a room and if there is any people in that room
+      //checks for same username inside room
       const roomInfo = await fetch(`${config.API_URI}/rooms/${roomName}`)
         .then((res) => {
           return res.json();
@@ -64,10 +66,10 @@ const Join = () => {
                 setToken(tokenData.token);
               })
               .catch(() => {
-                setError("That username is taken for this room");
+                setError("Username is taken");
               });
           } else {
-            setError("A room with that ID is not created yet");
+            setError("Room not found");
           }
         });
     },

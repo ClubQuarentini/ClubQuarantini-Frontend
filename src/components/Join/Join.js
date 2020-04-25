@@ -92,6 +92,7 @@ const Join = () => {
       }).then((res) => res.json());
       console.log("username", username);
       setToken(data.token);
+      setError(null);
     },
     [username, roomName]
   );

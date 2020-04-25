@@ -21,6 +21,7 @@ const Join = () => {
   const [roomName, setRoomName] = useState("");
   const [token, setToken] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [error, setError] = useState(null);
   const fade = useSpring({
     config: { duration: 2000 },
     from: { opacity: 0 },
@@ -34,7 +35,7 @@ const Join = () => {
       setIsModalOpen(false);
 
       //TODO: check if there is a user already with that room
-      const data = await fetch(`${config.API_URI}/video/token`, {
+      const tokenData = await fetch(`${config.API_URI}/video/token`, {
         method: "POST",
         body: JSON.stringify({
           identity: username,
@@ -44,8 +45,31 @@ const Join = () => {
           "Content-Type": "application/json",
         },
       }).then((res) => res.json());
-
-      setToken(data.token);
+      const roomInfo = await fetch(`${config.API_URI}/rooms/${roomName}`)
+        .then((res) => {
+          return res.json();
+        })
+        .then((data) => {
+          setError(null);
+          if (data.length > 0) {
+            let participantCheck = new Promise((resolve, reject) => {
+              data.forEach((participant) => {
+                if (participant.identity === username) {
+                  reject();
+                }
+              });
+              resolve();
+            })
+              .then(() => {
+                setToken(tokenData.token);
+              })
+              .catch(() => {
+                setError("Same Username");
+              });
+          } else {
+            setToken(tokenData.token);
+          }
+        });
     },
     [username, roomName]
   );
@@ -99,6 +123,11 @@ const Join = () => {
                 virtual drink.
               </p>
             </div>
+            {error && (
+              <p className="username-error">
+                That username is taken for this room
+              </p>
+            )}
             <form onSubmit={EnterClubRoom}>
               <div className="input-container">
                 <input

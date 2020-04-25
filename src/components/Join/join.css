@@ -30,6 +30,12 @@ body {
   width: 100%;
 }
 
+.username-error {
+  font-size: 20px;
+  color: white;
+  margin: 0;
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.808);
   position: relative;

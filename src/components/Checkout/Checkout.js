@@ -10,8 +10,8 @@ const CheckoutForm = (props) => {
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
-  const [email, setEmail] = useState('');
-  const [tipAmount, setTipAmount] = useState("");
+  const [email, setEmail] = useState("");
+  const [tipAmount, setTipAmount] = useState(1);
 
   const stripe = useStripe();
   const elements = useElements();
@@ -95,8 +95,14 @@ const CheckoutForm = (props) => {
           X
         </button>
         <h2 id="tip-title">COVID-19 Relief Fund Tip</h2>
-        <h3 id="tip-info">Any generous tip donated by you will directly<br></br>go towards the COVID-19 Relief Fund.</h3>
-        <h4 id="card-warning">Your card is never stored on our server at any point<br></br>during checkout and goes directly to Stripe.</h4>
+        <h3 id="tip-info">
+          Any generous tip donated by you will directly<br></br>go towards the
+          COVID-19 Relief Fund.
+        </h3>
+        <h4 id="card-warning">
+          Your card is never stored on our server at any point<br></br>during
+          checkout and goes directly to Stripe.
+        </h4>
         <form id="payment-form" onSubmit={handleSubmit}>
           <input
             type="text"

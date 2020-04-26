@@ -34,7 +34,6 @@ const createTheDrinkQue = (drinkOrders) => {
 
 const Button = (props) => {
   const [open, setOpen] = useState(false);
-
   return (
     <button onClick={() => setOpen(!open)} className="order-btn">
       Order a Drink
@@ -150,9 +149,19 @@ const Bar = (props) => {
         <img className="bar-counter" src="../../../Bar.svg" />
       </animated.div>
       <div className="order-info">
-        <Button>
-          <DropDown {...props} />
-        </Button>
+        <div id="bar-btns">
+          <Button>
+            <DropDown {...props} />
+          </Button>
+          <button
+            onClick={() =>
+              props.setIsCheckoutFormOpen(!props.isCheckoutFormOpen)
+            }
+            className="relief-btn"
+          >
+            Tip for Covid Relief
+          </button>
+        </div>
         <div className="que">
           <h5>Drink Orders</h5>
           {drinkOrders.length > 0 && createTheDrinkQue(drinkOrders)}

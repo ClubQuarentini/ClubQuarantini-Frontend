@@ -4,9 +4,17 @@ import Participant from "../Participant/Participant";
 import Bar from "../Bar/Bar";
 import config from "../../config";
 import io from "socket.io-client";
+
 import Drinks from "../../Drinks";
 import "./room.css";
+
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../Checkout/Checkout";
+
 let socket;
+
+const promise = loadStripe("pk_test_1hoMMf50PMd3g4ZPW4xh1WmG00EYO0AhYn");
 
 const Room = ({ userName, roomName, token, setToken }) => {
   const [room, setRoom] = useState(null);
@@ -15,6 +23,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
   const [messages, setMessages] = useState([]);
   const [drinkOrders, setDrinkOrders] = useState([]);
   const [drinkOrder, setDrinkOrder] = useState(null);
+  const [isCheckoutFormOpen, setIsCheckoutFormOpen] = useState(false);
 
   const remoteParticipants = participants.map((participant, i) => (
     <Participant
@@ -113,33 +122,43 @@ const Room = ({ userName, roomName, token, setToken }) => {
 
   return (
     <div className="room">
-      <div className="club-info">
-        <button className="logout" onClick={handleLogout}>
-          Log out
-        </button>
-        <h2>Club ID: {roomName}</h2>
-      </div>
-      <div className="bar-container">
-        <Bar
-          userName={userName}
-          roomName={roomName}
-          sendDrinkOrderToServer={sendDrinkOrderToServer}
-          sendBartenderMakingDrink={sendBartenderMakingDrink}
-          drinkOrders={drinkOrders}
-        />
-        <div className="local-participant">
-          {room ? (
-            <Participant
-              key={room.localParticipant.sid}
-              participant={room.localParticipant}
-              drink={drinkOrder}
-            />
-          ) : (
-            ""
-          )}
+      <Elements stripe={promise}>
+        {isCheckoutFormOpen && (
+          <CheckoutForm
+            setIsCheckoutFormOpen={setIsCheckoutFormOpen}
+            isCheckoutFormOpen={isCheckoutFormOpen}
+          />
+        )}
+        <div className="club-info">
+          <button className="logout" onClick={handleLogout}>
+            Log out
+          </button>
+          <h2>Club ID: {roomName}</h2>
         </div>
-        {remoteParticipants}
-      </div>
+        <div className="bar-container">
+          <Bar
+            userName={userName}
+            roomName={roomName}
+            sendDrinkOrderToServer={sendDrinkOrderToServer}
+            sendBartenderMakingDrink={sendBartenderMakingDrink}
+            drinkOrders={drinkOrders}
+            setIsCheckoutFormOpen={setIsCheckoutFormOpen}
+            isCheckoutFormOpen={isCheckoutFormOpen}
+          />
+          <div className="local-participant">
+            {room ? (
+              <Participant
+                key={room.localParticipant.sid}
+                participant={room.localParticipant}
+                drink={drinkOrder}
+              />
+            ) : (
+              ""
+            )}
+          </div>
+          {remoteParticipants}
+        </div>
+      </Elements>
     </div>
   );
 };

@@ -7,7 +7,6 @@ import BartenderScene3 from "../../images/bartendergifs/bartender3.png";
 import BartenderScene4 from "../../images/bartendergifs/bartender4.png";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
 import { useSpring, animated } from "react-spring";
-import CheckoutForm from "../Checkout/Checkout";
 
 const createTheDrinkQue = (drinkOrders) => {
   if (drinkOrders.length > 1) {
@@ -87,7 +86,6 @@ const DropDown = (props) => {
 const Bar = (props) => {
   const [bartenderScene, setBarTenderScene] = useState("");
   const [drinkOrders, setDrinkOrders] = useState([]);
-  const [isCheckoutFormOpen, setIsCheckoutFormOpen] = useState(false);
 
   //test
   //test
@@ -156,12 +154,13 @@ const Bar = (props) => {
             <DropDown {...props} />
           </Button>
           <button
-            onClick={() => setIsCheckoutFormOpen(!isCheckoutFormOpen)}
+            onClick={() =>
+              props.setIsCheckoutFormOpen(!props.isCheckoutFormOpen)
+            }
             className="relief-btn"
           >
             Tip for Covid Relief
           </button>
-          {isCheckoutFormOpen && <CheckoutForm />}
         </div>
         <div className="que">
           <h5>Drink Orders</h5>

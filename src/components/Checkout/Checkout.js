@@ -1,54 +1,61 @@
 import React, { useState, useEffect } from "react";
-import {
-  CardElement,
-  useStripe,
-  useElements
-} from "@stripe/react-stripe-js";
+import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import config from "../../config";
+import { useSpring, animated } from "react-spring";
+import "./checkout.css";
 
-import './checkout.css';
-
-export default function CheckoutForm() {
+const CheckoutForm = (props) => {
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
-  const [processing, setProcessing] = useState('');
+  const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [clientSecret, setClientSecret] = useState('');
+  const [clientSecret, setClientSecret] = useState("");
+  const [tipAmount, setTipAmount] = useState("");
+
   const stripe = useStripe();
   const elements = useElements();
+
+  const fade = useSpring({
+    config: { duration: 200 },
+    from: { opacity: 0, transform: `translate3d(0,200%,0)` },
+    to: { opacity: 1, transform: `translate3d(0,0%,0)` },
+  });
+
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
     window
       .fetch(`${config.API_URI}/create-payment-intent`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({items: [{ id: "tip" }]})
+        body: JSON.stringify({ tipAmount }),
       })
-      .then(res => {
+      .then((res) => {
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
+        console.log("data from stipe", data);
         setClientSecret(data.clientSecret);
       });
-  }, []);
+  }, [tipAmount]);
+
   const cardStyle = {
     style: {
       base: {
         color: "#32325d",
-        fontFamily: 'Arial, sans-serif',
+        fontFamily: "Arial, sans-serif",
         fontSmoothing: "antialiased",
         fontSize: "16px",
         "::placeholder": {
-          color: "#32325d"
-        }
+          color: "#32325d",
+        },
       },
       invalid: {
         color: "#fa755a",
-        iconColor: "#fa755a"
-      }
-    }
+        iconColor: "#fa755a",
+      },
+    },
   };
   const handleChange = async (event) => {
     // Listen for changes in the CardElement
@@ -56,16 +63,16 @@ export default function CheckoutForm() {
     setDisabled(event.empty);
     setError(event.error ? event.error.message : "");
   };
-  const handleSubmit = async ev => {
+  const handleSubmit = async (ev) => {
     ev.preventDefault();
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: ev.target.name.value
-        }
-      }
+          name: ev.target.name.value,
+        },
+      },
     });
     if (payload.error) {
       setError(`Payment failed ${payload.error.message}`);
@@ -77,30 +84,54 @@ export default function CheckoutForm() {
     }
   };
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
-      <CardElement id="card-element" options={cardStyle} onChange={handleChange} />
-      <button
-        disabled={processing || disabled || succeeded}
-        id="submit-payment"
-      >
-        <span id="button-text">
-          {processing ? (
-            <div className="spinner" id="spinner"></div>
-          ) : (
-            "Pay"
+    <div className="tip-overlay">
+      <animated.div style={fade} className="tip-container">
+        <button
+          className="exit-btn"
+          onClick={() => props.setIsCheckoutFormOpen(!props.isCheckoutFormOpen)}
+        >
+          X
+        </button>
+        <h2>COVID-19 Relief Found</h2>
+        <p> test</p>
+        <p>whwhdehjkdkjewned</p>
+        <form id="payment-form" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            value={tipAmount}
+            onChange={(e) => setTipAmount(e.target.value)}
+          />
+          <CardElement
+            id="card-element"
+            options={cardStyle}
+            onChange={handleChange}
+          />
+          <button
+            disabled={processing || disabled || succeeded}
+            id="submit-payment"
+          >
+            <span id="button-text">
+              {processing ? (
+                <div className="spinner" id="spinner"></div>
+              ) : (
+                "Pay"
+              )}
+            </span>
+          </button>
+          {/* Show any error that happens when processing the payment */}
+          {error && (
+            <div className="card-error" role="alert">
+              {error}
+            </div>
           )}
-        </span>
-      </button>
-      {/* Show any error that happens when processing the payment */}
-      {error && (
-        <div className="card-error" role="alert">
-          {error}
-        </div>
-      )}
-      {/* Show a success message upon completion */}
-      <p className={succeeded ? "result-message" : "result-message hidden"}>
-        Payment successful! Thank you so much for donating.
-      </p>
-    </form>
+          {/* Show a success message upon completion */}
+          <p className={succeeded ? "result-message" : "result-message hidden"}>
+            Payment successful! Thank you so much for donating.
+          </p>
+        </form>
+      </animated.div>
+    </div>
   );
-}
+};
+
+export default CheckoutForm;

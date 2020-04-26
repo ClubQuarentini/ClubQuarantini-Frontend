@@ -10,6 +10,7 @@ const CheckoutForm = (props) => {
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [clientSecret, setClientSecret] = useState("");
+  const [email, setEmail] = useState('');
   const [tipAmount, setTipAmount] = useState("");
 
   const stripe = useStripe();
@@ -67,6 +68,7 @@ const CheckoutForm = (props) => {
     ev.preventDefault();
     setProcessing(true);
     const payload = await stripe.confirmCardPayment(clientSecret, {
+      receipt_email: email,
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
@@ -92,13 +94,20 @@ const CheckoutForm = (props) => {
         >
           X
         </button>
-        <h2>COVID-19 Relief Found</h2>
-        <p> test</p>
-        <p>whwhdehjkdkjewned</p>
+        <h2 id="tip-title">COVID-19 Relief Fund Tip</h2>
+        <h3 id="tip-info">Any generous tip donated by you will directly<br></br>go towards the COVID-19 Relief Fund.</h3>
+        <h4 id="card-warning">Your card is never stored on our server at any point<br></br>during checkout and goes directly to Stripe.</h4>
         <form id="payment-form" onSubmit={handleSubmit}>
           <input
             type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter email address for reciept"
+          />
+          <input
+            type="text"
             value={tipAmount}
+            placeholder="4.99"
             onChange={(e) => setTipAmount(e.target.value)}
           />
           <CardElement

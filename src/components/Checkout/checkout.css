@@ -45,6 +45,35 @@ input {
   background: white;
   box-sizing: border-box;
 }
+
+#tip-title {
+    width: 100%;
+    margin-left: 72px;
+}
+
+#tip-info {
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 32px;
+    margin-left: 72px;
+}
+
+#card-warning {
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    color: lightgray;
+    margin-top: 0px;
+    margin-left: 72px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: lightgray;
+    opacity: 1; /* Firefox */
+}
+
 #payment-request-button {
   margin-bottom: 32px;
 }

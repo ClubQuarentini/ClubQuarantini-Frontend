@@ -6,7 +6,13 @@ import BartenderScene2 from "../../images/bartendergifs/bartender2.png";
 import BartenderScene3 from "../../images/bartendergifs/bartender3.png";
 import BartenderScene4 from "../../images/bartendergifs/bartender4.png";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
+// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../Checkout/Checkout";
 import { useSpring, animated } from "react-spring";
+
+const promise = loadStripe("pk_test_1hoMMf50PMd3g4ZPW4xh1WmG00EYO0AhYn");
 
 const createTheDrinkQue = (drinkOrders) => {
   if (drinkOrders.length > 1) {
@@ -86,6 +92,7 @@ const DropDown = (props) => {
 const Bar = (props) => {
   const [bartenderScene, setBarTenderScene] = useState("");
   const [drinkOrders, setDrinkOrders] = useState([]);
+  const [isCheckoutFormOpen, setIsCheckoutFormOpen] = useState(false);
 
   //test
   //test
@@ -154,14 +161,20 @@ const Bar = (props) => {
             <DropDown {...props} />
           </Button>
           <button
-            onClick={() =>
-              props.setIsCheckoutFormOpen(!props.isCheckoutFormOpen)
-            }
+            onClick={() => setIsCheckoutFormOpen(!isCheckoutFormOpen)}
             className="relief-btn"
           >
             Tip for Covid Relief
           </button>
         </div>
+        <Elements stripe={promise}>
+          {isCheckoutFormOpen && (
+            <CheckoutForm
+              setIsCheckoutFormOpen={setIsCheckoutFormOpen}
+              isCheckoutFormOpen={isCheckoutFormOpen}
+            />
+          )}
+        </Elements>
         <div className="que">
           <h5>Drink Orders</h5>
           {drinkOrders.length > 0 && createTheDrinkQue(drinkOrders)}

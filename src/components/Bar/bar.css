@@ -12,7 +12,7 @@
 }
 
 .bar-imgs-container:hover {
-  box-shadow: 0 12px 31px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 12px 31px 5px rgba(101, 233, 49, 0.27);
 }
 .bar-imgs-container {
   border-radius: 5px;
@@ -70,7 +70,7 @@
   border-radius: 30px;
   display: inline-block;
   border: 2px solid #6ab04c;
-  background-color:black;
+  background-color: black;
   font-size: 15px;
   transition: all 0.2s ease-in-out;
   width: 180px;

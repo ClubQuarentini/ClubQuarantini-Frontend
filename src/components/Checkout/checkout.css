@@ -47,31 +47,32 @@ input {
 }
 
 #tip-title {
-    width: 100%;
-    margin-left: 72px;
+  width: 100%;
+  margin-left: 72px;
 }
 
 #tip-info {
-    width: 100%;
-    text-align: left;
-    font-weight: 400;
-    margin-top: 0px;
-    margin-bottom: 32px;
-    margin-left: 72px;
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+  margin-top: 0px;
+  margin-bottom: 32px;
+  margin-left: 72px;
 }
 
 #card-warning {
-    width: 100%;
-    text-align: left;
-    font-weight: 400;
-    color: lightgray;
-    margin-top: 0px;
-    margin-left: 72px;
+  width: 100%;
+  text-align: left;
+  font-weight: 400;
+  color: lightgray;
+  margin-top: 0px;
+  margin-left: 72px;
 }
 
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: lightgray;
-    opacity: 1; /* Firefox */
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: lightgray;
+  opacity: 1; /* Firefox */
 }
 
 #payment-request-button {
@@ -157,7 +158,7 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(26, 26, 26, 0.589);
+  /* background-color: rgba(26, 26, 26, 0.589); */
   display: flex;
   justify-content: center;
   align-items: center;

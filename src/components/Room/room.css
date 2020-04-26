@@ -4,7 +4,7 @@
   width: 100%;
   min-height: 100vh;
   color: white;
-  background-color: black;
+  background-color: #1a1a1a;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;

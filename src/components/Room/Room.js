@@ -46,7 +46,7 @@ const Room = ({ userName, roomName, token, setToken }) => {
   useEffect(() => {
     socket.on("message", (message) => {
       setMessages([...messages, message]);
-      console.log("message", messages);
+      // console.log("message", messages);
     });
     socket.on("roomData", ({ users }) => {
       // console.log("roomdata", users);

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Room from "../Room/Room";
 import config from "../../config";
 import SignupModal from "../SignupModal/SignupModal";
+import Loader from "../Loader";
 import { useSpring, animated } from "react-spring";
 
 import "./join.css";
@@ -22,6 +23,7 @@ const Join = () => {
   const [token, setToken] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const fade = useSpring({
     config: { duration: 2000 },
     from: { opacity: 0 },
@@ -31,6 +33,7 @@ const Join = () => {
 
   const EnterClubRoom = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       setIsModalOpen(false);
 
@@ -63,12 +66,15 @@ const Join = () => {
               resolve();
             })
               .then(() => {
+                setIsLoading(false);
                 setToken(tokenData.token);
               })
               .catch(() => {
+                setIsLoading(false);
                 setError("Username is taken");
               });
           } else {
+            setIsLoading(false);
             setError("Room not found");
           }
         });
@@ -78,6 +84,7 @@ const Join = () => {
 
   const CreateClubRoom = useCallback(
     async (event) => {
+      setIsLoading(true);
       event.preventDefault();
       setIsModalOpen(false);
       let roomID = generateRandomRoom();
@@ -91,7 +98,10 @@ const Join = () => {
         headers: {
           "Content-Type": "application/json",
         },
-      }).then((res) => res.json());
+      }).then((res) => {
+        setIsLoading(false);
+        return res.json();
+      });
       console.log("username", username);
       setToken(data.token);
       setError(null);
@@ -106,6 +116,7 @@ const Join = () => {
         roomName={roomName}
         token={token}
         setToken={setToken}
+        isLoading={isLoading}
       />
     );
   } else {
@@ -113,55 +124,59 @@ const Join = () => {
       <div className="joinOuterContainer">
         <div className="overlay">
           <img className="logo" src="../../logo.png"></img>
-          <animated.div className="joinInnerContainer" style={fade}>
-            <div className="tagline-container">
-              <div className="NO-taglines">
-                <h2>NO COVER</h2>
-                <h2>NO BOUNCERS</h2>
-                <h2>NO PROBLEMS</h2>
+          {!isLoading ? (
+            <animated.div className="joinInnerContainer" style={fade}>
+              <div className="tagline-container">
+                <div className="NO-taglines">
+                  <h2>NO COVER</h2>
+                  <h2>NO BOUNCERS</h2>
+                  <h2>NO PROBLEMS</h2>
+                </div>
+                <h1 className="heading">THEQUARANTINI.CLUB</h1>
+                <p className="tagline">
+                  Never been easier to connect with your friends over a quick,
+                  virtual drink.
+                </p>
               </div>
-              <h1 className="heading">THEQUARANTINI.CLUB</h1>
-              <p className="tagline">
-                Never been easier to connect with your friends over a quick,
-                virtual drink.
-              </p>
-            </div>
-            {error && <p className="username-error">{error}</p>}
-            <form onSubmit={EnterClubRoom}>
-              <div className="input-container">
-                <input
-                  className="joinInput"
-                  type="text"
-                  placeholder="Create username"
-                  onChange={(e) => setUsername(e.target.value.toLowerCase())}
-                  required
-                />
-                <input
-                  className="joinInput"
-                  type="text"
-                  placeholder="Enter group code"
-                  onChange={(e) => setRoomName(e.target.value.toString())}
-                  req
-                />
-                <button type="submit" className="button">
-                  HIT THE CLUB
-                </button>
-              </div>
-            </form>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="create-club"
-            >
-              Or start your own club
-            </button>
-            <SignupModal
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-              handleSubmit={CreateClubRoom}
-              setUsername={setUsername}
-              setRoomName={setRoomName}
-            />
-          </animated.div>
+              {error && <p className="username-error">{error}</p>}
+              <form onSubmit={EnterClubRoom}>
+                <div className="input-container">
+                  <input
+                    className="joinInput"
+                    type="text"
+                    placeholder="Create username"
+                    onChange={(e) => setUsername(e.target.value.toLowerCase())}
+                    required
+                  />
+                  <input
+                    className="joinInput"
+                    type="text"
+                    placeholder="Enter group code"
+                    onChange={(e) => setRoomName(e.target.value.toString())}
+                    req
+                  />
+                  <button type="submit" className="button">
+                    HIT THE CLUB
+                  </button>
+                </div>
+              </form>
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="create-club"
+              >
+                Or start your own club
+              </button>
+              <SignupModal
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen}
+                handleSubmit={CreateClubRoom}
+                setUsername={setUsername}
+                setRoomName={setRoomName}
+              />
+            </animated.div>
+          ) : (
+            <Loader />
+          )}
         </div>
       </div>
     );

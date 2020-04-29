@@ -12,7 +12,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../Checkout/Checkout";
 import { useSpring, animated } from "react-spring";
 
-const promise = loadStripe("pk_test_1hoMMf50PMd3g4ZPW4xh1WmG00EYO0AhYn");
+const promise = loadStripe("pk_live_GzwJPNknInOj4vw2LSyhjedn00AOOxp3kP");
 
 const createTheDrinkQue = (drinkOrders) => {
   if (drinkOrders.length > 1) {

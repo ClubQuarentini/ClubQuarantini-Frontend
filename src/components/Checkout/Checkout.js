@@ -36,7 +36,7 @@ const CheckoutForm = (props) => {
         return res.json();
       })
       .then((data) => {
-        console.log("data from stipe", data);
+        // console.log("data from stipe", data);
         setClientSecret(data.clientSecret);
       });
   }, [tipAmount]);
@@ -96,7 +96,7 @@ const CheckoutForm = (props) => {
         </button>
         <h2 id="tip-title">COVID-19 Relief Fund Tip</h2>
         <h3 id="tip-info">
-          Any generous tip donated by you will directly<br></br>go towards the
+          Any generous tip donated by you will directly<br></br>go towards a
           COVID-19 Relief Fund.
         </h3>
         <h4 id="card-warning">

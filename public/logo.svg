@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="192px" height="61px" viewBox="0 0 192 61" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 61.2 (89653) - https://sketch.com -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop" transform="translate(-32.000000, -26.000000)">
+            <g id="logo" transform="translate(16.000000, 16.000000)">
+                <g id="Group-4" transform="translate(37.500000, 40.500000) rotate(21.000000) translate(-37.500000, -40.500000) translate(10.000000, 8.000000)">
+                    <g id="Group" transform="translate(15.456000, 29.664763)" fill="#FFFFFF" opacity="0.7">
+                        <ellipse id="Oval" cx="10.08" cy="31.248" rx="10.08" ry="3.024"></ellipse>
+                        <path d="M6.048,30.912 C7.80638907,29.7035493 8.6855836,28.4972932 8.6855836,27.2932316 C8.6855836,26.08917 8.6855836,16.9914262 8.6855836,0 L11.3942745,0 C11.3942745,17.0489326 11.3942745,26.1595434 11.3942745,27.3318325 C11.3942745,28.5041217 12.300183,29.6975108 14.112,30.912" id="Path"></path>
+                    </g>
+                    <g id="Group-3" transform="translate(38.607729, 14.875685) rotate(50.000000) translate(-38.607729, -14.875685) translate(32.607729, -0.624315)">
+                        <polygon id="Rectangle" fill="#B08443" points="4.704 0 6.048 0 6.048 30.912"></polygon>
+                        <g id="Group-2" transform="translate(5.860610, 20.977170) rotate(-77.000000) translate(-5.860610, -20.977170) translate(2.360610, 16.477170)">
+                            <ellipse id="Oval" fill="#6AB04C" cx="3.024" cy="4.032" rx="3.024" ry="4.032"></ellipse>
+                            <ellipse id="Oval" fill="#B04543" cx="3.024" cy="1.68" rx="1.68" ry="1.008"></ellipse>
+                        </g>
+                        <g id="Group-2" transform="translate(5.603082, 12.409477) rotate(-77.000000) translate(-5.603082, -12.409477) translate(2.103082, 7.909477)">
+                            <ellipse id="Oval" fill="#6AB04C" cx="3.024" cy="4.032" rx="3.024" ry="4.032"></ellipse>
+                            <ellipse id="Oval" fill="#B04543" cx="3.024" cy="1.68" rx="1.68" ry="1.008"></ellipse>
+                        </g>
+                    </g>
+                    <path d="M25.536,16.8967628 L41.664,29.3847728 C39.8984673,28.8121636 36.7286366,28.3485973 32.154508,27.9940738 C25.2933151,27.4622887 23.2930508,29.0706414 18.4328874,29.990693 C15.1927785,30.6040607 12.1844827,30.4020873 9.408,29.3847728 L25.536,16.8967628 Z" id="Triangle" fill-opacity="0.79258632" fill="#A9FC86" transform="translate(25.536000, 23.616763) scale(1, -1) translate(-25.536000, -23.616763) "></path>
+                    <path d="M25.536,11.4908969 L1.45176988,30.5047628 L49.6202301,30.5047628 L25.536,11.4908969 Z" id="Triangle" stroke="#FFFFFF" stroke-width="1.008" opacity="0.697846912" transform="translate(25.536000, 20.928763) scale(1, -1) translate(-25.536000, -20.928763) "></path>
+                </g>
+                <text id="The-Quarantini-Club" font-family="HiBlk, Hi." font-size="20" font-weight="700" letter-spacing="0.220000008" fill="#FFFFFF">
+                    <tspan x="79" y="30">The </tspan>
+                    <tspan x="79" y="50">Quarantini </tspan>
+                    <tspan x="79" y="70">Club</tspan>
+                    <tspan x="138.78" y="70" font-family="HiBd, Hi." font-weight="bold"> </tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>

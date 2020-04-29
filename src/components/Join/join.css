@@ -54,11 +54,11 @@ body {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .joinInnerContainer {
-  margin-top: 100px;
+  margin-top: -50px;
   width: 50%;
   display: flex;
   justify-content: center;
@@ -176,6 +176,11 @@ body {
   cursor: pointer;
   border: 2px solid #6ab04c;
   border-radius: 30px;
+}
+
+.loading {
+  font-size: 30px;
+  color: white;
 }
 
 @media (min-width: 320px) and (max-width: 480px) {

@@ -1,8 +1,8 @@
 TheQuarantini.Club is A video chatting platform for your friends only where you can order virtual drinks in a club-like atmosphere and chat with friends while sipping on an Espresso Martini that your resident bartender just served you. These chatrooms have no time limit unlike Zoom and are private to your friends with a unique code. Host up to 8 friends in the room for a fun time socializing while keeping your distance!
 
-#Set up
+# Set up
 
-Requirements:
+## Requirements:
 
 - Node.js
 - A Twilio account - sign up
@@ -31,7 +31,11 @@ Install dependencies
 ```
 npm install
 ```
-Navgiate to /src/components/Bar/Bar.js and replace the Stripe public key with your own
+Inside the client repo, navgiate to the below path and replace the Stripe public key with your own
+
+```
+/src/components/Bar/Bar.js
+```
 
 Clone backend repository (Server) and cd into it on another termimal tab
 

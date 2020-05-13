@@ -1,9 +1,10 @@
+## About the Project
+
 TheQuarantini.Club is A video chatting platform for your friends only where you can order virtual drinks in a club-like atmosphere and chat with friends while sipping on an Espresso Martini that your resident bartender just served you. These chatrooms have no time limit unlike Zoom and are private to your friends with a unique code. Host up to 8 friends in the room for a fun time socializing while keeping your distance!
 
-# Set up
+## Set up
 
-## Requirements:
-
+Requirements:
 - Node.js
 - A Twilio account - sign up
 - Strip Account - sign up

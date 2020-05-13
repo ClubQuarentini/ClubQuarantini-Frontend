@@ -6,7 +6,6 @@ import BartenderScene2 from "../../images/bartendergifs/bartender2.png";
 import BartenderScene3 from "../../images/bartendergifs/bartender3.png";
 import BartenderScene4 from "../../images/bartendergifs/bartender4.png";
 import BartenderStill from "../../images/bartendergifs/bartenderstill.png";
-// import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import CheckoutForm from "../Checkout/Checkout";
